@@ -1,4 +1,4 @@
 package lk.kavishka.ijse.tictactoe;
 
-public class HumanPlayer {
+public class HumanPlayer extends Player {
 }

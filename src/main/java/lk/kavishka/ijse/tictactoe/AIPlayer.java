@@ -1,4 +1,4 @@
 package lk.kavishka.ijse.tictactoe;
 
-public class AIPlayer {
+public class AIPlayer extends Player{
 }
