@@ -38,15 +38,15 @@
                         <RowConstraints minHeight="100" prefHeight="100" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <!-- Adding Labels as cells with the CSS class "grid-cell" -->
-                    <Label fx:id="cell1" onMouseClicked="#cell1Click" prefHeight="219.0" prefWidth="289.0" styleClass="grid-cell" text="Cell 1" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                    <Label fx:id="cell2" onMouseClicked="#cell2Click" prefHeight="199.0" prefWidth="220.0" styleClass="grid-cell" text="Cell 2" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                    <Label fx:id="cell3" onMouseClicked="#cell3Click" prefHeight="250.0" prefWidth="282.0" styleClass="grid-cell" text="Cell 3" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                    <Label fx:id="cell4" onMouseClicked="#cell4Click" prefHeight="268.0" prefWidth="249.0" styleClass="grid-cell" text="Cell 4" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                    <Label fx:id="cell5" onMouseClicked="#cell5Click" prefHeight="230.0" prefWidth="262.0" styleClass="grid-cell" text="Cell 5" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                    <Label fx:id="cell6" onMouseClicked="#cell6Click" prefHeight="214.0" prefWidth="253.0" styleClass="grid-cell" text="Cell 6" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                    <Label fx:id="cell7" onMouseClicked="#cell7Click" prefHeight="234.0" prefWidth="225.0" styleClass="grid-cell" text="Cell 7" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                    <Label fx:id="cell8" onMouseClicked="#cell8Click" prefHeight="204.0" prefWidth="249.0" styleClass="grid-cell" text="Cell 8" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                    <Label fx:id="cell9" onMouseClicked="#cell9Click" prefHeight="204.0" prefWidth="235.0" styleClass="grid-cell" text="Cell 9" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <Label fx:id="cell1" onMouseClicked="#cell1Click" prefHeight="219.0" prefWidth="289.0" styleClass="grid-cell" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label fx:id="cell2" onMouseClicked="#cell2Click" prefHeight="199.0" prefWidth="220.0" styleClass="grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <Label fx:id="cell3" onMouseClicked="#cell3Click" prefHeight="250.0" prefWidth="282.0" styleClass="grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                    <Label fx:id="cell4" onMouseClicked="#cell4Click" prefHeight="268.0" prefWidth="249.0" styleClass="grid-cell" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label fx:id="cell5" onMouseClicked="#cell5Click" prefHeight="230.0" prefWidth="262.0" styleClass="grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Label fx:id="cell6" onMouseClicked="#cell6Click" prefHeight="214.0" prefWidth="253.0" styleClass="grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <Label fx:id="cell7" onMouseClicked="#cell7Click" prefHeight="234.0" prefWidth="225.0" styleClass="grid-cell" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Label fx:id="cell8" onMouseClicked="#cell8Click" prefHeight="204.0" prefWidth="249.0" styleClass="grid-cell" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <Label fx:id="cell9" onMouseClicked="#cell9Click" prefHeight="204.0" prefWidth="235.0" styleClass="grid-cell" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                 </GridPane>
             </children>
         </Pane>
