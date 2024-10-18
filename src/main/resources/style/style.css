@@ -1,0 +1,25 @@
+#pane{
+    -fx-background-color: rgba(94, 147, 234, 0.1);
+}
+/* Styles for the entire pane (optional) */
+#pane {
+    -fx-background-color: rgba(94, 147, 234, 0.1); /* Background color */
+    -fx-border-color: #2a76d3; /* Border color */
+    -fx-border-width: 2px; /* Border thickness */
+    -fx-border-radius: 4px; /* Border corner radius */
+    -fx-padding: 10px; /* Padding inside the pane */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 5, 5); /* Shadow effect */
+}
+
+/* Styling for grid cells */
+.grid-cell {
+    -fx-border-color: #2a76d3; /* Border color for the cells */
+    -fx-border-width: 2px; /* Border thickness */
+    -fx-border-style: solid; /* Border style */
+    -fx-padding: 10px; /* Padding inside each cell */
+    -fx-margin: 5px; /* Margin between cells */
+    -fx-background-color: white; /* Background for the cells */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 3, 3); /* Shadow effect */
+    -fx-alignment: center; /* Center the content of the cell */
+}
+
