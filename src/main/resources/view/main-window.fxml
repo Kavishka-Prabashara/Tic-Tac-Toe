@@ -26,7 +26,7 @@
                     </font>
                 </Text>
             </children></AnchorPane>
-        <Pane id="pane" layoutX="325.0" layoutY="137.0" prefHeight="550.0" prefWidth="550.0" stylesheets="@../../../../style/style.css">
+        <Pane id="pane" layoutX="325.0" layoutY="137.0" prefHeight="550.0" prefWidth="550.0" stylesheets="@../style/style.css">
             <effect>
                 <DropShadow />
             </effect>
