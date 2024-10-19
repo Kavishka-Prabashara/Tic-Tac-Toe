@@ -1,5 +1,8 @@
 package lk.kavishka.ijse.tictactoe;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
@@ -10,8 +13,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
-    public class BoardController implements Board {
+import java.io.IOException;
+
+
+public class BoardController implements Board {
 
         @FXML
         private Label cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9;
@@ -36,7 +43,8 @@ import javafx.scene.layout.GridPane;
         private final Image crossMark = new Image(getClass().getResourceAsStream("/images/crossMark.png"));
         private final Image circleMark = new Image(getClass().getResourceAsStream("/images/circleMark.png"));
 
-        @FXML
+
+    @FXML
         public void initialize() {
             initializeBoard();
         }
@@ -83,6 +91,7 @@ import javafx.scene.layout.GridPane;
         void cell9Click(MouseEvent event) { handleCellClick(cell9, 2, 2); }
 
         private void handleCellClick(Label cell, int row, int col) {
+
             if (humanPlayer == null || aiPlayer == null) {
                 // Show alert if the player hasn't selected X or O
                 Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -109,6 +118,11 @@ import javafx.scene.layout.GridPane;
                 alert.showAndWait();
                 gameWon = true;
                 resetField(null); // Call reset method
+                try {
+                    welcomePageLoader();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             } else {
                 // If no winner, AI makes a move
                 aiPlayer.move(0, 0);
@@ -121,6 +135,11 @@ import javafx.scene.layout.GridPane;
                     alert.showAndWait();
                     gameWon = true;
                     resetField(null); // Call reset method
+                    try {
+                        welcomePageLoader();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }
@@ -232,4 +251,20 @@ import javafx.scene.layout.GridPane;
             humanPlayer = null;
             aiPlayer = null;
         }
+    private void welcomePageLoader() throws IOException {
+        // Load the new welcome page
+        FXMLLoader fxmlLoader = new FXMLLoader(AppInitializer.class.getResource("/view/welcome-window.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+
+        // Create a new Stage for the welcome window
+        Stage welcomeStage = new Stage();
+        welcomeStage.setTitle("Welcome Tic-Tac-Toe");
+        welcomeStage.setScene(scene);
+        welcomeStage.show();
+
+        // Get the current stage using any node (e.g., cell1 or resetBtn)
+        Stage currentStage = (Stage) cell1.getScene().getWindow(); // Use cell1 to get the current stage
+        currentStage.close();
     }
+
+}
