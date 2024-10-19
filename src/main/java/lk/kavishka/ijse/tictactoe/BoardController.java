@@ -105,7 +105,7 @@ import javafx.scene.layout.GridPane;
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Game Over");
                 alert.setHeaderText(null);
-                alert.setContentText("You Win! :-)");
+                alert.setContentText(currentPlayer+" Win! :-)");
                 alert.showAndWait();
                 gameWon = true;
                 resetField(null); // Call reset method
