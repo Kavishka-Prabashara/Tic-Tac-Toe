@@ -3,7 +3,13 @@ package lk.kavishka.ijse.tictactoe;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class WelcomePage {
 
@@ -43,12 +49,31 @@ public class WelcomePage {
 
     @FXML
     void enterOnAction(ActionEvent event) {
-        // Call the method to get the name when button is clicked
-        String playerName = getNameFromTextField();
-        System.out.println("Player Name: " + playerName);
-        System.out.println("Current Player: " + currentPlayer);
-        // You can now use the playerName for other logic, such as passing it to another class
+        try {
+            // Call the method to get the name when button is clicked
+            String playerName = getNameFromTextField();
+            System.out.println("Player Name: " + playerName);
+            System.out.println("Current Player: " + currentPlayer);
+
+            // Load the main-window.fxml file
+            FXMLLoader fxmlLoader = new FXMLLoader(AppInitializer.class.getResource("/view/main-window.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+
+            // Get the current stage from the event (button click)
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            // Set the scene and title for the main window
+            stage.setTitle("Tic-Tac-Toe");
+            stage.setScene(scene);
+            stage.show();
+
+            // Optionally: if you want to close the current WelcomePage, it will happen automatically since we are switching scenes.
+
+        } catch (IOException e) {
+            e.printStackTrace(); // Handle exceptions when loading the FXML file
+        }
     }
+
 
     // Method to get the name from the TextField
     public String getNameFromTextField() {
