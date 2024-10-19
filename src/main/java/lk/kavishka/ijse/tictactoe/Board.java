@@ -12,6 +12,12 @@ public interface Board {
     void updateMove(int row, int col, Piece piece);
 
     // Method to check if there's a winner
-    Piece checkWinner();
 
+    BoardUI getBoardUI();
+
+    boolean checkWinner();
+
+    void printBoard();
+
+    Object getAIPlayer();
 }
