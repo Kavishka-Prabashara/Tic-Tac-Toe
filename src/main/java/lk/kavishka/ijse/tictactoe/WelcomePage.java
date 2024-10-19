@@ -54,8 +54,8 @@ public class WelcomePage {
         try {
             // Call the method to get the name when button is clicked
             String playerName = getNameFromTextField();
-            System.out.println("Player Name: " + playerName);
-            System.out.println("Current Player: " + currentPlayer);
+           /* System.out.println("Player Name: " + playerName);
+            System.out.println("Current Player: " + currentPlayer);*/
 
             // Load the main-window.fxml file
             FXMLLoader fxmlLoader = new FXMLLoader(AppInitializer.class.getResource("/view/main-window.fxml"));
