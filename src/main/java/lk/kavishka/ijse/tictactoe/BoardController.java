@@ -136,11 +136,11 @@ public class BoardController implements Board {
             alert.setContentText("You Win! :-)");
             alert.showAndWait();
             gameWon = true;
+            resetField(null); // Call reset method
         } else {
             // If no winner, AI makes a move
             aiPlayer.move(0, 0);
             updateBoardUI();
-
             if (checkWinner()) {
                 // Create an "AI Wins!" alert
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -149,8 +149,10 @@ public class BoardController implements Board {
                 alert.setContentText("AI Wins! :-(");
                 alert.showAndWait();
                 gameWon = true;
+                resetField(null); // Call reset method
             }
         }
+
     }
 
     // Updates the graphical representation of the board
