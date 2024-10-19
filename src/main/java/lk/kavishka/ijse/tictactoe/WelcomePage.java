@@ -57,7 +57,13 @@ public class WelcomePage {
 
             // Load the main-window.fxml file
             FXMLLoader fxmlLoader = new FXMLLoader(AppInitializer.class.getResource("/view/main-window.fxml"));
+
+            // Load the scene and get the BoardController
             Scene scene = new Scene(fxmlLoader.load());
+            BoardController boardController = fxmlLoader.getController();
+
+            // Pass player details to the BoardController
+            boardController.initializeGame(playerName, currentPlayer);
 
             // Get the current stage from the event (button click)
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -67,13 +73,10 @@ public class WelcomePage {
             stage.setScene(scene);
             stage.show();
 
-            // Optionally: if you want to close the current WelcomePage, it will happen automatically since we are switching scenes.
-
         } catch (IOException e) {
             e.printStackTrace(); // Handle exceptions when loading the FXML file
         }
     }
-
 
     // Method to get the name from the TextField
     public String getNameFromTextField() {
