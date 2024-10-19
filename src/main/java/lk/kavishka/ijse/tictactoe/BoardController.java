@@ -108,6 +108,18 @@ public class BoardController implements Board {
     }
 
     private void handleCellClick(Label cell, int row, int col) {
+        if (humanPlayer == null || aiPlayer == null) {
+            // Show alert if the player hasn't selected X or O
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Selection Required");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select X or O before playing.");
+
+            // Display the alert
+            alert.showAndWait();
+            return; // Exit the method to prevent further processing
+        }
+
         if (gameWon || boardState[row][col] != null) {
             return; // Ignore clicks after game is won or if cell is already occupied
         }
@@ -122,10 +134,7 @@ public class BoardController implements Board {
             alert.setTitle("Game Over");
             alert.setHeaderText(null);
             alert.setContentText("You Win! :-)");
-
-            // Display the alert
             alert.showAndWait();
-
             gameWon = true;
         } else {
             // If no winner, AI makes a move
@@ -138,10 +147,7 @@ public class BoardController implements Board {
                 alert.setTitle("Game Over");
                 alert.setHeaderText(null);
                 alert.setContentText("AI Wins! :-(");
-
-                // Display the alert
                 alert.showAndWait();
-
                 gameWon = true;
             }
         }
