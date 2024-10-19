@@ -249,16 +249,13 @@ public class BoardController implements Board {
         // Clear the board state
         boardState = new String[3][3];
 
+        // List of cell labels
+        Label[] cells = { cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9 };
+
         // Clear graphics from all cell labels
-        cell1.setGraphic(null);
-        cell2.setGraphic(null);
-        cell3.setGraphic(null);
-        cell4.setGraphic(null);
-        cell5.setGraphic(null);
-        cell6.setGraphic(null);
-        cell7.setGraphic(null);
-        cell8.setGraphic(null);
-        cell9.setGraphic(null);
+        for (Label cell : cells) {
+            cell.setGraphic(null);
+        }
 
         // Reset the game state
         gameWon = false;
