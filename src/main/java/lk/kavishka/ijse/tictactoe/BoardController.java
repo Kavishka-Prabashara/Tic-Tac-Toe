@@ -246,5 +246,25 @@ public class BoardController implements Board {
     }
 
     public void resetField(ActionEvent actionEvent) {
+        // Clear the board state
+        boardState = new String[3][3];
+
+        // Clear graphics from all cell labels
+        cell1.setGraphic(null);
+        cell2.setGraphic(null);
+        cell3.setGraphic(null);
+        cell4.setGraphic(null);
+        cell5.setGraphic(null);
+        cell6.setGraphic(null);
+        cell7.setGraphic(null);
+        cell8.setGraphic(null);
+        cell9.setGraphic(null);
+
+        // Reset the game state
+        gameWon = false;
+        currentPlayer = "X"; // Reset to default, or you can prompt for new selection
+        humanPlayer = null;
+        aiPlayer = null;
     }
+
 }
