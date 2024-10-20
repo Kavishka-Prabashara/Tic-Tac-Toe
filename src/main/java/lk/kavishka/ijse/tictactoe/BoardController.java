@@ -116,7 +116,7 @@ public class BoardController implements Board {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Game Over");
                 alert.setHeaderText(null);
-                alert.setContentText(playerName+"is Win! :-)");
+                alert.setContentText(playerName+" is Win! :-)");
                 alert.showAndWait();
                 gameWon = true;
                 resetField(null); // Call reset method
