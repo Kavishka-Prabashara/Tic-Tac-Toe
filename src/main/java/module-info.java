@@ -8,3 +8,4 @@ module lk.kavishka.ijse.tictactoe {
     opens lk.kavishka.ijse.tictactoe to javafx.fxml;
     exports lk.kavishka.ijse.tictactoe;
 }
+
