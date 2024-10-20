@@ -92,59 +92,107 @@ public class BoardController implements Board {
         @FXML
         void cell9Click(MouseEvent event) { handleCellClick(cell9, 2, 2); }
 
-        private void handleCellClick(Label cell, int row, int col) {
+    private void handleCellClick(Label cell, int row, int col) {
 
-            if (humanPlayer == null || aiPlayer == null) {
-                // Show alert if the player hasn't selected X or O
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Selection Required");
-                alert.setHeaderText(null);
-                alert.setContentText("Please select X or O before playing.");
-                alert.showAndWait();
-                return; // Exit the method to prevent further processing
+        if (humanPlayer == null || aiPlayer == null) {
+            // Show alert if the player hasn't selected X or O
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Selection Required");
+            alert.setHeaderText(null);
+            alert.setContentText("Please select X or O before playing.");
+            alert.showAndWait();
+            return; // Exit the method to prevent further processing
+        }
+
+        if (gameWon || boardState[row][col] != null) {
+            return; // Ignore clicks after game is won or if cell is already occupied
+        }
+
+        // Human player makes their move
+        humanPlayer.move(row, col);
+        updateCellGraphic(cell, currentPlayer);
+
+        // Check for a winner
+        if (checkWinner()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Game Over");
+            alert.setHeaderText(null);
+            alert.setContentText(playerName + " Wins! :-)");
+            alert.showAndWait();
+            gameWon = true;
+            resetField(null); // Call reset method
+            try {
+                welcomePageLoader();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+            return;
+        }
 
-            if (gameWon || boardState[row][col] != null) {
-                return; // Ignore clicks after game is won or if cell is already occupied
+        // Check for a draw
+        if (isBoardFull()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Game Over");
+            alert.setHeaderText(null);
+            alert.setContentText("It's a Draw! :-|");
+            alert.showAndWait();
+            resetField(null); // Call reset method
+            try {
+                welcomePageLoader();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+            return;
+        }
 
-            // Human player makes their move
-            humanPlayer.move(row, col);
-            updateCellGraphic(cell, currentPlayer);
+        // AI makes its move if no winner or draw
+        aiPlayer.move(0, 0);
+        updateBoardUI();
 
-            if (checkWinner()) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Game Over");
-                alert.setHeaderText(null);
-                alert.setContentText(playerName+" is Win! :-)");
-                alert.showAndWait();
-                gameWon = true;
-                resetField(null); // Call reset method
-                try {
-                    welcomePageLoader();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } else {
-                // If no winner, AI makes a move
-                aiPlayer.move(0, 0);
-                updateBoardUI();
-                if (checkWinner()) {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Game Over");
-                    alert.setHeaderText(null);
-                    alert.setContentText("AI Wins! :-(");
-                    alert.showAndWait();
-                    gameWon = true;
-                    resetField(null); // Call reset method
-                    try {
-                        welcomePageLoader();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+        // Check for a winner after AI move
+        if (checkWinner()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Game Over");
+            alert.setHeaderText(null);
+            alert.setContentText("AI Wins! :-(");
+            alert.showAndWait();
+            gameWon = true;
+            resetField(null); // Call reset method
+            try {
+                welcomePageLoader();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return;
+        }
+
+        // Check for a draw after AI move
+        if (isBoardFull()) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Game Over");
+            alert.setHeaderText(null);
+            alert.setContentText("It's a Draw! :-|");
+            alert.showAndWait();
+            resetField(null); // Call reset method
+            try {
+                welcomePageLoader();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // Method to check if the board is full (i.e., no more available cells)
+    private boolean isBoardFull() {
+        for (int i = 0; i < boardState.length; i++) {
+            for (int j = 0; j < boardState[i].length; j++) {
+                if (boardState[i][j] == null) {
+                    return false; // Found an empty cell
                 }
             }
         }
+        return true; // No empty cells, board is full
+    }
         private void updateBoardUI() {
             Label[] cells = {cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8, cell9};
             for (int row = 0; row < 3; row++) {
