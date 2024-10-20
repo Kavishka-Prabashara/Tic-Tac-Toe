@@ -33,6 +33,7 @@ public class BoardController implements Board {
         private GridPane mainGrid;
 
         private String currentPlayer;
+        private String playerName;
         private boolean gameWon = false;
         private String[][] boardState = new String[3][3]; // "X", "O", or null
 
@@ -50,7 +51,8 @@ public class BoardController implements Board {
         }
 
         // Method to initialize the game with player details
-        public void initializeGame(String playerName, String playerSymbol) {
+        public void initializeGame(String currentPlayerName, String playerSymbol) {
+            playerName = currentPlayerName;
             currentPlayer = playerSymbol;
             humanPlayer = new HumanPlayer(playerSymbol, this);
             aiPlayer = new AIPlayer(playerSymbol.equals("X") ? "O" : "X", this);
@@ -114,7 +116,7 @@ public class BoardController implements Board {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Game Over");
                 alert.setHeaderText(null);
-                alert.setContentText(currentPlayer+" Win! :-)");
+                alert.setContentText(playerName+"is Win! :-)");
                 alert.showAndWait();
                 gameWon = true;
                 resetField(null); // Call reset method

@@ -21,6 +21,7 @@ public class WelcomePage {
     @FXML
     private TextField txtName;
 
+    private String playerName;
     private String currentPlayer = "X";
 
     private HumanPlayer humanPlayer;
@@ -53,7 +54,7 @@ public class WelcomePage {
     void enterOnAction(ActionEvent event) {
         try {
             // Call the method to get the name when button is clicked
-            String playerName = getNameFromTextField();
+            playerName = getNameFromTextField();
            /* System.out.println("Player Name: " + playerName);
             System.out.println("Current Player: " + currentPlayer);*/
 
