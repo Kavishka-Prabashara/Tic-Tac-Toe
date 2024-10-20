@@ -13,7 +13,7 @@
 
 <AnchorPane fx:id="mainAnchrpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.kavishka.ijse.tictactoe.BoardController">
     <children>
-        <AnchorPane fx:id="titleBar" prefHeight="62.0" prefWidth="1200.0" style="-fx-background-color: #3944bc;" styleClass="titleBar">
+        <AnchorPane fx:id="titleBar" prefHeight="62.0" prefWidth="1200.0" style="-fx-background-color: #0c3963;" styleClass="titleBar">
             <children>
             <JFXButton fx:id="resetBtn" layoutX="1086.0" layoutY="9.0" onAction="#resetField" prefHeight="40.0" prefWidth="100.0" text="Reset ⟳" textFill="WHITE">
                <font>
