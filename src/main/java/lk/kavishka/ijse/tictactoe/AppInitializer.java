@@ -13,8 +13,10 @@ public class AppInitializer extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(AppInitializer.class.getResource("/view/welcome-window.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Tic-Tac-Toe");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
+
     }
 
     public static void main(String[] args) {

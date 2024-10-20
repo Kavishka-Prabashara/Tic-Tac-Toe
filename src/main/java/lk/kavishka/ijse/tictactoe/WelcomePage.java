@@ -55,8 +55,6 @@ public class WelcomePage {
         try {
             // Call the method to get the name when button is clicked
             playerName = getNameFromTextField();
-           /* System.out.println("Player Name: " + playerName);
-            System.out.println("Current Player: " + currentPlayer);*/
 
             // Load the main-window.fxml file
             FXMLLoader fxmlLoader = new FXMLLoader(AppInitializer.class.getResource("/view/main-window.fxml"));
@@ -74,12 +72,21 @@ public class WelcomePage {
             // Set the scene and title for the main window
             stage.setTitle("Tic-Tac-Toe");
             stage.setScene(scene);
+
+            // Center the stage on the screen
+            stage.centerOnScreen();
+
+            // Enable window resizing
+            stage.setResizable(false);
+
+            // Show the main window
             stage.show();
 
         } catch (IOException e) {
             e.printStackTrace(); // Handle exceptions when loading the FXML file
         }
     }
+
 
     // Method to get the name from the TextField
     public String getNameFromTextField() {
