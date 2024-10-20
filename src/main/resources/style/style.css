@@ -23,3 +23,39 @@
     -fx-alignment: center; /* Center the content of the cell */
 }
 
+
+/* Style for text field with border radius */
+.text-field {
+    -fx-background-color: transparent; /* Transparent background */
+    -fx-background-radius: 10; /* Rounded corners */
+    -fx-border-radius: 10; /* Rounded border */
+    -fx-border-color: #cccccc; /* Border color */
+}
+
+
+/* Style for .enterBtn with hover effect */
+/* Style for #btnX and #btnO with hover effect */
+#btnX, #btnO {
+    -fx-background-color: rgba(30, 144, 255, 0.4); /* Default button color */
+    -fx-text-fill: #ffffff; /* Default text color */
+}
+
+#btnX:hover, #btnO:hover {
+    -fx-background-color: #1e90ff; /* Default button color */
+    -fx-text-fill: #ffffff; /* Text color on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 2); /* Shadow effect on hover */
+}
+
+/* Style for .enterBtn with hover effect */
+#btnEnter {
+    -fx-text-fill: #ffffff; /* Default text color */
+    -fx-background-color: #1e90ff; /* Button color on hover */
+}
+
+#btnEnter:hover {
+    -fx-background-color: #0057a6; /* Button color on hover */
+    -fx-text-fill: #ffffff; /* Text color on hover */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 10, 0, 0, 2); /* Shadow effect on hover */
+}
+
+
